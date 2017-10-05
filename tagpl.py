@@ -21,6 +21,7 @@ if __name__ == '__main__':
         file_structure = {'filename': fname, 'lines': []}
         for line_no, line in nonempty_numbered_lines(fname):
             token_list = utils.token_structure(line)
-            file_structure['lines'].append({'line_no': line_no, 'tokens': token_list})
+            file_structure['lines'].append({
+                'content': line, 'line_no': line_no, 'tokens': token_list})
         with open(fname + '.json', 'w') as out_stream:
             json.dump(file_structure, out_stream)
